@@ -17,7 +17,7 @@ pub struct People {
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let resp = reqwest::get("http://api.open-notify.org/astros.json").await?;
     let p: Root = resp.json().await?;
-    println!("\n👨‍🚀 There are {} people in space 🧑‍🚀\n", p.number);
+    println!("\nThere are {} people in space\n", p.number);
     for people in p.people.iter() {
         println!("- {} on the {}", people.name, people.craft)
     }
